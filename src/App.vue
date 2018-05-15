@@ -5,9 +5,6 @@
     <button @click="start()" type="button" name="button">
       開始
     </button>
-    <button @click="restart()" type="button" name="button">
-      重新開始
-    </button>
     <div class="gameSection">
 
       <div v-for="o in objects">
@@ -30,9 +27,6 @@ export default {
     }
   },
   methods:{
-    restart(){
-      location.reload();
-    },
     start(){
       var o = document.querySelectorAll('.object')
       console.log(o.length);
@@ -47,9 +41,11 @@ export default {
           var ans = prompt("請問有幾個vue");
           if(ans == o.length){
             alert('答對拉');
+            location.reload()
           }
           else {
             alert('眼殘尼？是' + o.length + '個');
+            location.reload()
           }
         }
       }, 200)
